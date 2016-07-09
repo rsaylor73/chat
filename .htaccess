@@ -1,0 +1,13 @@
+RewriteEngine On
+Options +FollowSymLinks
+AddType application/x-httpd-php5 .php5 .php .php3 .php2 .phtml
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^app/([a-zA-Z0-9]+)/?$ index.php?section=app&id=$1 [NC,L]
+RewriteRule ^app2/([a-zA-Z0-9]+)/?$ index.php?section=app2&id=$1 [NC,L]
+
+RewriteRule ^app/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/?$ index.php?section=app&id=$1&action=$2 [NC,L]
+RewriteRule ^app2/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/?$ index.php?section=app2&id=$1&action=$2 [NC,L]
+
